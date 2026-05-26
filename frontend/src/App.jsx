@@ -11,13 +11,17 @@ function App() {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:3000/fruitsdata").then((response) => {
-      setfruits(response.data);
-    });
+    axios
+      .get("https://mongodb-connect-test.vercel.app/fruitsdata")
+      .then((response) => {
+        setfruits(response.data);
+      });
   }, []);
 
   const handleAdd = () => {
-    axios.post("http://localhost:3000/addfruit", { newfruit: entValue });
+    axios.post("https://mongodb-connect-test.vercel.app/addfruit", {
+      newfruit: entValue,
+    });
     setfruits([...fruits, { name: entValue }]);
     setentValue("");
   };

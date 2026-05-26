@@ -15,7 +15,8 @@ function App() {
       .get("https://mongodb-connect-test.vercel.app/fruitsdata")
       .then((response) => {
         setfruits(response.data);
-      });
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   const handleAdd = () => {
